@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  windows:
+    image: dockurr/windows:latest  # hoặc chỉ định version10
+    container_name: win-photoshop
+    environment:
+      VERSION: "10"               # Windows 10
+      RAM_SIZE: "6G"              # Tăng RAM cho mượt hơn
+      CPU_CORES: "2"              # Giảm CPU cores
+      DISK_SIZE: "40G"            # Giảm disk size
+      LANGUAGE: "en-US"           # English US
+      KVM: "N"                    # Disable KVM cho Docker Desktop
+      USERNAME: "docker"          # Username cho RDP
+      PASSWORD: "password"        # Password cho RDP
+    # devices:
+    #   - /dev/kvm                # Chỉ dùng trên Linux host, bỏ comment nếu dùng Linux
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "8006:8006"               # Web viewer (noVNC)
+      - "3389:3389"               # RDP (dùng Microsoft Remote Desktop connect)
+      - "5900:5900"               # VNC port cho VNC client
+    stop_grace_period: 2m
+    restart: unless-stopped
+    volumes:
+      - ./windows-data:/storage   # Lưu data VM
+      - ./input-output:/shared    # Shared folder - Photoshop sẽ ở đây

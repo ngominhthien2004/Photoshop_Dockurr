@@ -1,0 +1,33 @@
+# Runtime VM storage (very large)
+windows-data/
+
+# Runtime/cache/user profile data
+Data/
+
+# Proprietary/binary app payloads
+App/
+Photoshoр.exe
+input-output/Photoshop/
+input-output/vc_redist.x64.exe
+
+# Optional: keep only automation scripts in input-output root
+!input-output/
+!input-output/*.bat
+!input-output/*.reg
+
+# Logs/temp
+*.log
+*.tmp
+*.cache
+
+# Binary artifacts
+*.exe
+*.dll
+*.8bi
+*.8bf
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

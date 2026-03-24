@@ -1,0 +1,29 @@
+# Thử nghiệm chạy Photoshop với Wine (có thể không hoạt động hoàn hảo)
+FROM scottyhardy/docker-wine:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    winbind \
+    cabextract \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install winetricks
+RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks \
+    && chmod +x winetricks \
+    && mv winetricks /usr/local/bin/
+
+# Copy Photoshop Portable
+COPY ./App /photoshop/App
+COPY ./Data /photoshop/Data
+
+# Install vcrun2019 (Visual C++ Runtime)
+RUN winetricks -q vcrun2019
+
+# Set working directory
+WORKDIR /photoshop/App/Photoshop
+
+# Expose VNC for GUI
+EXPOSE 5900
+
+# Start Photoshop
+CMD ["wine", "Photoshop.exe"]

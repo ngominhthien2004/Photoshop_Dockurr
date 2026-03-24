@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Adobe\Photoshop\140.0]
+"UseOpenCL"=dword:00000000
+"AllowOldGPUS"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Adobe\Photoshop\140.0\Performance]
+"UseGraphicsProcessor"=dword:00000000

@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+; Disable GPU for better performance without KVM
+[HKEY_CURRENT_USER\Software\Adobe\Photoshop\140.0]
+"UseOpenCL"=dword:00000000
+"AllowOldGPUS"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Adobe\Photoshop\140.0\Performance]
+"UseGraphicsProcessor"=dword:00000000
+"HistoryCacheLevels"=dword:00000002
+"CacheTileSize"=dword:00000080
+
+; Reduce memory usage
+[HKEY_CURRENT_USER\Software\Adobe\Photoshop\140.0\PerformanceSettings]
+"MemoryUsagePercent"=dword:00000046
+"ScratchDiskCount"=dword:00000001
+
+; Disable unnecessary features
+[HKEY_CURRENT_USER\Software\Adobe\Photoshop\140.0\UI]
+"AnimatedZoom"=dword:00000000
+"FlickPanning"=dword:00000000
+"EnableAnimatedPanelDocking"=dword:00000000
