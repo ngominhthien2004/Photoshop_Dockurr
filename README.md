@@ -27,12 +27,18 @@ cd Photoshop_Dockurr
   - `Data/`
 - Chuẩn bị payload ứng dụng hợp pháp của bạn vào đúng vị trí local nếu cần.
 
-### 3) Chạy container
+### 3) Giải nén Photoshop (bắt buộc)
+- Chuẩn bị file nén Photoshop hợp pháp của bạn.
+- Giải nén vào thư mục local:
+  - `input-output/Photoshop/`
+- Đảm bảo sau khi giải nén có thể truy cập được bộ cài/portable trong `input-output/Photoshop/` từ bên trong VM qua thư mục Shared.
+
+### 4) Chạy container
 ```bash
 docker compose up -d
 ```
 
-### 4) Kết nối
+### 5) Kết nối
 - RDP: mở file `Photoshop-RDP-Fast.rdp`
 - noVNC: `http://localhost:8006`
 - VNC: `localhost:5900`
@@ -41,8 +47,10 @@ Mặc định trong `docker-compose.yml`:
 - Username: `docker`
 - Password: `password`
 
-### 5) Tối ưu trong VM
+### 6) Cài/khởi chạy Photoshop trong VM và tối ưu
 Trong thư mục shared:
+- Mở thư mục `Photoshop` (phần đã giải nén ở bước 3)
+- Nếu cần, chạy `Install-Photoshop-Local.bat`
 - Chạy `Optimize-Windows.bat` (Run as Administrator)
 - Chạy `Clean-Windows.bat` (Run as Administrator)
 - Restart VM
